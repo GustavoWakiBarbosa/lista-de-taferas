@@ -20,9 +20,16 @@
       <h2>Lista de Tarefas</h2>
       <div class="headerInput">
         <input type="text" id="nova-tarefa" placeholder="Escreva um novo item" />
-        <butoon class="addBtn">Inserir</button>
+        <butoon class="addBtn" onclick="adicionarT()">Inserir</button>
       </div>
     </header>
+
+    <template id="template">
+      <li>
+        Meu primeiro item da lista
+        <button class="remover">Remover</button>
+      </li>
+    </template>
 
     <ul id="lista">
       <li>
@@ -31,6 +38,8 @@
       </li>
     </ul>
   </main>
+
+  <script src="js.js"></script>
 </body>
 
 </html>
