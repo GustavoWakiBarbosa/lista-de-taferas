@@ -5,7 +5,7 @@
 body {
   display: flex;
   flex-direction: column;
-  align-items: right;
+  align-items: center;
   color: #000000;
   font-family: Roboto, sans-serif;
 }
@@ -20,7 +20,7 @@ ul {
   list-style-type: none;
 }
 
-ul item {
+ul li {
   cursor: pointer;
   position: relative;
   margin-top: 8px;
