@@ -7,20 +7,16 @@ function adicionarT() {
 
     var li = novoItem.querySelector("li")
 
-    li.appendChild(document.createTextNode(conteudo))
+    li.append(conteudo)
 
     // li.innerHTML = conteudo
 
     var lista = document.getElementById("lista");
 
-    lista.appendChild(novoItem);
-
-
-
-
-
-
-
+    lista.append(novoItem);
 }
 
+function removerB() {
+    // document.querySelector("li").remove();
 
+}
