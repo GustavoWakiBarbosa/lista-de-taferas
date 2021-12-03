@@ -1,6 +1,14 @@
+var enter = document.getElementById("nova-tarefa");
+
+enter.addEventListener('keyup', (e) => {
+
+    if (e.key === "Enter") {
+        adicionarT()
+    }
+})
 
 function adicionarT() {
-    var conteudo = document.getElementById("nova-tarefa").value;
+    var conteudo = document.getElementById("nova-tarefa");
 
     var areaTemplate = document.getElementById("template");
 
@@ -8,17 +16,16 @@ function adicionarT() {
 
     var li = novoItem.querySelector("li")
 
-    li.append(conteudo)
-
-    // li.innerHTML = conteudo
+    li.append(conteudo.value)
 
     var lista = document.getElementById("lista");
 
-    if (conteudo == "") {
+    if (conteudo.value == "") {
         alert("Insira um texto");
     }
     else {
         lista.append(novoItem);
+        conteudo.value = ""
     }
 }
 
