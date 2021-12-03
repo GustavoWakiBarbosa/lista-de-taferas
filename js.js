@@ -1,7 +1,8 @@
-function adicionarT() {
-    var areaTemplate = document.getElementById("template");
 
+function adicionarT() {
     var conteudo = document.getElementById("nova-tarefa").value;
+
+    var areaTemplate = document.getElementById("template");
 
     var novoItem = areaTemplate.content.cloneNode(true);
 
@@ -13,10 +14,15 @@ function adicionarT() {
 
     var lista = document.getElementById("lista");
 
-    lista.append(novoItem);
+    if (conteudo == "") {
+        alert("Insira um texto");
+    }
+    else {
+        lista.append(novoItem);
+    }
 }
 
-function removerB() {
-    // document.querySelector("li").remove();
+function remover(elemento) {
+    elemento.parentElement.remove();
 
 }
