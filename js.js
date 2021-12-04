@@ -24,6 +24,14 @@ function adicionarT() {
         alert("Insira um texto");
     }
     else {
+        var numeroDeItens = lista.children.length;
+        if (numeroDeItens % 2 == 0) {
+            li.style.backgroundColor = "#E4EFF1"
+
+        }
+        if (numeroDeItens % 3 == 0) {
+            li.style.color = "red"
+        }
         lista.append(novoItem);
         conteudo.value = ""
     }
