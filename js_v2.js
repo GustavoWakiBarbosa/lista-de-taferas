@@ -7,37 +7,47 @@ enter.addEventListener('keyup', (e) => {
     }
 })
 
-function adicionarT() {
-    var conteudo = document.getElementById("nova-tarefa");
+var tarefas = JSON.parse(localStorage.getItem("tarefas"));
 
-    var areaTemplate = document.getElementById("template");
+window.onload = () => {
+    listarTodasTarefas();
+}
 
-    var novoItem = areaTemplate.content.cloneNode(true);
-
-    var li = novoItem.querySelector("li")
-
-    li.append(conteudo.value)
-
+function listarTodasTarefas() {
     var lista = document.getElementById("lista");
+    lista.innerHTML = "";
 
-    if (conteudo.value == "") {
-        alert("Insira um texto");
-    }
-    else {
-        var numeroDeItens = lista.children.length;
-        if (numeroDeItens % 2 == 0) {
-            li.style.backgroundColor = "#E4EFF1"
+    tarefas.forEach(function (valor, posicao) {
+        var modeloItem = document.getElementById("modeloItem");
+        var novoItem = modeloItem.content.cloneNode(true);
 
-        }
-        if (numeroDeItens % 3 == 0) {
-            li.style.color = "red"
-        }
+        var li = novoItem.querySelector('li');
+        li.value = posicao;
+        li.append(valor);
+
         lista.append(novoItem);
-        conteudo.value = ""
-    }
+    });
+}
+
+function adicionarTarefa() {
+    var novaTarefa = document.getElementById("nova-tarefa");
+
+    tarefas.push(novaTarefa.value);
+    listarTodasTarefas();
+
+    novaTarefa.value = "";
+    salvarNoBanco();
 }
 
 function remover(elemento) {
-    elemento.parentElement.remove();
+    var posicao = elemento.parentElement.value;
+    tarefas.splice(posicao, 1);
 
+    listarTodasTarefas();
+    salvarNoBanco();
 }
+
+function salvarNoBanco() {
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
